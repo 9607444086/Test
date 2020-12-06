@@ -1,0 +1,27 @@
+Case1:
+    #include <iostream>
+using namespace std;
+
+int lengthbuilding(int arr[],int n)
+int length=1;
+
+int curr_max=arr[0];
+for(int i=1;i<n;i++)
+{
+  if (arr[i]>curr_max)
+{
+length++;
+curr_max=arr[i];
+}
+}
+return length;
+
+main()
+
+int arr[]={{4,0},{4,-5},{7,-5},{7,0}};
+point n={1,1};
+int n=lengthof(arr)/lengthof(arr[0]);
+cout<<lengthbuilding(arr.n);
+return 0;
+
+
