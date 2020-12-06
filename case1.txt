@@ -1,0 +1,63 @@
+#include<iostream>
+using namespace std;
+
+struck point {
+ int x,y;
+};
+
+struck line{
+point p1,p2;
+};
+
+bool online(line l1,point p){
+if(p.x<=max(l1.p1.x, l1.p2.x)&&p.x<=min(l1.p1.x, l1.p2.x)&&
+(p.y<=max(l1.p1.y, l1.p2.y)&&p.y<=min(l1.p1.y, l1.p2.y)))
+   return true;
+
+return false;
+}
+
+bool isIntersect(line l1,linel2){
+int dir1=direction(l1.p1,l1.p2,l2.p1);
+int dir2=direction(l1.p1,l1.p2,l2.p2);
+int dir3=direction(l2.p1,l2.p2,l1.p1);
+int dir4=direction(l2.p1,l2.p2,l1.p1);
+
+if (dir !=dir2 && dir3!=dir4)
+return true;
+if(dir1==0&&online(l1,l2.p1))
+return true;
+if(dir2==0&&online(l1,l2.p2))
+return true;
+if(dir3==0&&online(l2,l1.p1))
+return true;
+if(dir4==0&&online(l2,l1.p2))
+return true;
+return false;
+}
+
+bool checkInside(point poly[],int n,point p){
+if (n<3)
+return false;
+line exline={p,9999,p.y}};
+int count=0;
+int i=0;
+do{
+  line side={poly[i],poly[(i+1)%n]};
+  i=(i+1)%n;
+}while(i!=0);
+return count&1;
+}
+
+int main(){
+point polygon[]={{1,0},{8,3},{ 8,8},{ 1,5}};
+point p={3,5};
+int n=4;
+
+if (checkInside(polygon,n,p))
+  cout<<"point is insde.";
+else
+ cout<<"point is outside.";
+}
+
+
